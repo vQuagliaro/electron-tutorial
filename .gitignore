@@ -1,0 +1,11 @@
+node_modules/*
+dist/*
+
+# OS/Editor generated files
+.DS_Store
+.DS_Store?
+.idea/
+
+# Logs
+logs
+*.log
