@@ -1,0 +1,26 @@
+{
+  "name": "my-awesome-app",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "electron ./app",
+
+    "clean": "rm -rf ./dist",
+    "clean:osx": "rm -rf ./dist/osx",
+    "clean:win": "rm -rf ./dist/win",
+
+    "pack": "npm run pack:osx && npm run pack:win",
+    "pack:win": "npm run clean:win && electron-packager ./app $npm_package_name --out=dist/win --platform=win32 --arch=ia32 --version=0.34.1 --icon=assets/win/icon.ico",
+    "pack:osx": "npm run clean:osx && electron-packager ./app $npm_package_name --out=dist/osx --platform=darwin --arch=x64 --version=0.34.1 --icon=assets/osx/my-awesome-app.icns",
+
+    "build": "npm run build:osx && npm run build:win",
+    "build:win": "npm run pack:win && electron-builder dist/win/$npm_package_name-win32-ia32 --platform=win --out=dist/win --config=build-config.json",
+    "build:osx": "npm run pack:osx && electron-builder dist/osx/$npm_package_name-darwin-x64 --platform=osx --out=dist/osx --config=build-config.json"
+  },
+  "author": "Theodo (http://www.theodo.fr)",
+  "license": "MIT",
+  "dependencies": {
+    "electron-builder": "^2.0.2",
+    "electron-packager": "^5.1.0",
+    "electron-prebuilt": "^0.34.1"
+  }
+}
