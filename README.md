@@ -202,6 +202,15 @@ To build for win and osx:
 $ npm run build
 ```
 
+```txt
+dist
+├── osx
+│   └── my-awesome-app.dmg
+└── win
+    └── my-awesome-app Setup.exe
+```
+
+![Alt text](/doc/images/screenshot-win.png)
 
 ## Team
 
